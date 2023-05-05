@@ -11,3 +11,6 @@
 
 - <code>codes/</code>：
   -  `排序.cpp` 
+
+- <code>images/</code>：
+  - 一些帮助理解的图片
