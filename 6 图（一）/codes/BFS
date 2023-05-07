@@ -1,0 +1,27 @@
+void BFSTraverse(GraphAdjList g){
+	int i;
+	EdgeNode p;
+	Queue<Integer> q;
+	for(i=0;i<g.numVertexes;i++){
+		visited[i] = false;
+	}
+	q = new LinkedList<Integer>();
+	for(i=0;i<g.numVertexes;i++){
+		if(!visited[i]){
+			visited[i] = true;
+			System.out.println(g.vertexNodes[i].data);
+			q.offer(i);
+			while(!q.isEmpty()){
+				i = q.poll();
+				p = g.vertexNodes[i].firstEdge;
+				while(p != null){
+					if(!visited[p.adjvex]){
+						visited[p.adjvex] = true;
+						System.out.println(g.vertexNodes[p.adjvex].data);
+						q.offer(p.adjvex);
+					}
+					p = p.next;
+				}
+			}
+		}
+	}

@@ -1,0 +1,12 @@
+void DFS(GraphAdjList gl,int i){
+		EdgeNode p = null;
+		visited[i] = true;
+		System.out.println(gl.vertexNodes[i].data);//打印顶点
+		p = gl.vertexNodes[i].firstEdge;
+		while(p != null){
+			if(!visited[p.next.adjvex]){
+				DFS(gl, p.next.adjvex);
+			}
+			p = p.next;
+		}
+	}

@@ -1,0 +1,32 @@
+const int maxn = 10005;
+const int maxm = 1000005;//edge
+using namespace std;
+int n;
+struct node {
+    int to, next;
+//    int value ,from,
+};
+node edge[maxm];
+int box[maxn];//box[i]  节点i下第一条边
+int ecnt;//边的个数
+void _make_map(int from, int to) {
+    edge[ecnt].to = to;//to  节点
+    edge[ecnt].next = box[from];//同节点下该边下一条边
+    box[from] = ecnt++;// 节点from的第一条边
+}
+void make_map(int from, int to)//双向边
+{
+    _make_map(from, to);
+    _make_map(to, from);
+}
+ 
+int main() {
+    while (scanf("%d", &n) != EOF) {
+        ecnt = 0;
+        int i;
+        int u[100], v[100];
+        // 储存边
+        for (i = 0; i < n; i++) {
+            scanf("%d%d", &u[i], &v[i]);
+            make_map(u[i], v[i]);
+        }            
