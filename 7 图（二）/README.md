@@ -1,4 +1,3 @@
-just for commit
 # 第7讲   图(二)
 
 ## 简介
