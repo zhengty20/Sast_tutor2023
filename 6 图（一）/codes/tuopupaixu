@@ -1,0 +1,24 @@
+list <node*> tsort(graph G) {
+	list<node*> res;
+	unordered_map<node*, int> inmap; 
+	queue<node*> zeronode;
+	for (auto next : G.nodes) {//G.nodes是map
+		inmap[next.second] = next.second->in;
+		if (next.second->in == 0) {
+			zeronode.push(next.second);
+		}
+	}
+	while (!zeronode.empty()) {
+		node* cur = zeronode.front();
+		zeronode.pop();
+		res.push_back(cur);
+		for (auto next : cur->nexts) {
+			inmap[next]--;
+			if (inmap[next] == 0) {
+				zeronode.push(next);
+			}
+		}
+	}
+ 
+	return res;
+ }
