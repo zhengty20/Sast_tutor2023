@@ -14,7 +14,6 @@
 
 - <code>docs/</code>：用来存放教程文件
 
-- <code>imgs/</code>：用来存放教程所需图片
 
 - <code>codes/</code>：用来存放代码示例
 
